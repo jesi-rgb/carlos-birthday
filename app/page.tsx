@@ -7,35 +7,33 @@ import { ChevronDown, FileSpreadsheet, HelpCircle, Settings } from "lucide-react
 export default function Home() {
   // Customize these messages in order of appearance
   const birthdayMessages = [
-    "¡Feliz Cumpleaños Carlos!",
-    "Eres un gran amigo",
-    "Recuerdo cuando trabajamos juntos en...",
-    "Ese día que nos reímos tanto de...",
-    "Tu habilidad con Excel siempre me ha impresionado",
-    "Espero que tengas un día increíble",
-    "Gracias por tu amistad",
-    "¡Que cumplas muchos más!",
-    "Haz clic en 'Mensaje Especial' para ver más",
-    "Haz clic en 'Mensaje Especial' para ver más",
-    "Haz clic en 'Mensaje Especial' para ver más",
-    "Haz clic en 'Mensaje Especial' para ver más",
-    "Haz clic en 'Mensaje Especial' para ver más",
+    "ooo ma gaa",
+    "qué dise mi rey?",
+    "te amo carlos",
+    "pasa un buen día de cumpleaños",
+    "qué bien que siempre...",
+    "invites a las cenas 💖",
+    "eres un gran amigo",
+    "ole",
+    "los caracoles",
+    "sonido de whatsapp",
+    "nene qué hacemos ahora?",
+    "te amo",
   ]
 
   const emojiForCells = [
-    "🎉",
-    "😊",
-    "👨‍💻",
-    "👩‍💻",
-    "📊",
-    "🎉",
-    "🎉",
-    "🎉",
-    "🎉",
-    "😊",
-    "👨‍💻",
-    "👩‍💻",
-    "📊",
+    "😱",
+    "👑",
+    "💖",
+    "🎂",
+    "🤔",
+    "💸",
+    "🫂",
+    "💃🏻",
+    "🐌",
+    "💬",
+    "🤔",
+    "💖",
   ]
 
   const columns = ["A", "B", "C", "D"]
@@ -107,7 +105,7 @@ export default function Home() {
     return (
       <div
         key={cellId}
-        className={`border-[0.5px] border-gray-200 h-12 flex items-center justify-center ${isHighlighted ? "bg-yellow-200 border-yellow-500 border-2 animate-pulse" : hasMessage ? "bg-green-50" : ""
+        className={`border-[0.5px] border-gray-200 text-2xl h-12 flex items-center justify-center ${isHighlighted ? "bg-yellow-200 border-yellow-500 border-2 animate-pulse" : hasMessage ? "bg-green-50" : ""
           }`}
         onClick={() => handleCellClick(cellId)}
       >
@@ -122,11 +120,15 @@ export default function Home() {
       <div className="bg-[#217346] text-white p-2 flex justify-between items-center">
         <div className="flex items-center gap-2">
           <FileSpreadsheet size={24} />
-          <span className="font-semibold">Carlos Birthday.xlsx</span>
+          <span className="font-semibold">Cumple Carlos.xlsx</span>
         </div>
         <div className="flex gap-2">
-          <Settings size={20} />
-          <HelpCircle size={20} />
+          <a href="/ajustes">
+            <Settings size={20} />
+          </a>
+          <a href="/pregunta">
+            <HelpCircle size={20} />
+          </a>
         </div>
       </div>
 
@@ -136,7 +138,6 @@ export default function Home() {
         <span className="whitespace-nowrap">Inicio</span>
         <span className="whitespace-nowrap">Insertar</span>
         <span className="whitespace-nowrap">Fórmulas</span>
-        <span className="whitespace-nowrap">Datos</span>
       </div>
 
       {/* Formula bar */}
@@ -182,17 +183,20 @@ export default function Home() {
       </div>
 
       {/* Bottom navigation */}
-      <div className="bg-gray-200 p-3 border-t border-gray-300 flex justify-center">
-        <Link
-          href="/about"
-          className={`px-4 py-2 rounded-md font-medium ${currentMessageIndex >= birthdayMessages.length
-            ? "bg-[#217346] text-white animate-pulse"
-            : "bg-gray-400 text-white"
-            }`}
-        >
-          Mensaje Especial
-        </Link>
-      </div>
+      {currentMessageIndex >= birthdayMessages.length &&
+        <div className="bg-gray-200 p-1 border-t border-gray-300 flex justify-center sticky bottom-0">
+
+          <Link
+            href="/about"
+            className={`px-4 py-2 rounded-md text-xs font-medium ${currentMessageIndex >= birthdayMessages.length
+              ? "bg-[#217346] text-white animate-pulse"
+              : "bg-gray-400 text-white"
+              }`}
+          >
+            pulse aquí para descargar iPad
+          </Link>
+        </div>
+      }
     </div>
   )
 }
